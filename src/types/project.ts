@@ -1,4 +1,5 @@
 export type Project = {
+  _id: string;
   creator: string;
   collaborators: string[];
   name: string;
@@ -14,6 +15,7 @@ export type Project = {
   email: string;
   startDate: Date;
   watching: string[];
+  upvotes: number;
 };
 
 export enum ProjectStatus {

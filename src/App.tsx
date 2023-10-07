@@ -1,10 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { logIn } from './actions/authentication';
+import { Route, Routes } from 'react-router-dom';
+import routes from './routes';
+import './styles.css';
 
 function App() {
-  const dispatch = useDispatch();
-  dispatch(logIn('badrahsein@gmail.com', 'badrahsein@gmail.com'));
-  return <div className="App">Hello</div>;
+  return (
+    <Routes>
+      {routes.map((route) => (
+        <Route key={route.name} path={route.path} element={<route.component />} />
+      ))}
+    </Routes>
+  );
 }
 
 export default App;

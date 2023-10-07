@@ -1,0 +1,57 @@
+/* .app-container {
+  background-color: darkblue;
+  color: white;
+  padding: 20px;
+}
+.project-box {
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 10px;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  margin-top: 50px;
+  background-color: darkblue;
+  color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+}
+
+.filters {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  border: none;
+}
+.dropdown {
+  margin: 10px 0;
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  padding: 10px;
+}
+.dropdown label {
+  margin-right: 10px;
+}
+.project-box {
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}

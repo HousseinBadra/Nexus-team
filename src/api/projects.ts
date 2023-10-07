@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { Project } from '../types/project';
 
-const API_URL = 'http://localhost:3001/auth'; // replace with your actual API URL
+const API_URL = 'http://localhost:3001'; // replace with your actual API URL
 
 const getAllProjects = async (query: string, keywords: string[]) => {
+  console.log(keywords.reduce((t, e) => `${t}&keyword=${e}`, ''));
   const response = await axios.get(
     `${API_URL}/projects/getAllProjects?generalSearch=${query}${keywords.reduce(
       (t, e) => `${t}&keyword=${e}`,
