@@ -47,7 +47,7 @@ export default function ProjectComponent(props: ProjectProps) {
       <p>{project.description}</p>
       <div style={{ display: 'flex', gap: '5px', marginBottom: '10px' }}>
         {project.keywords.map((k, i) => (
-          <Chip key={k} label={k} variant="filled" color={colors[i % colors.length]} />
+          <Chip key={k} label={k} variant="filled" style={{ color: colors[i % colors.length] }} />
         ))}
       </div>
       <div>

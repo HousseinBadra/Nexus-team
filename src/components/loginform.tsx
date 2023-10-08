@@ -45,15 +45,15 @@ function LoginForm() {
     marginTop: '16px',
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: { target: { value: React.SetStateAction<string> } }) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: { target: { value: React.SetStateAction<string> } }) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     dispatch(logIn(email, password));
     // Add your login logic here
@@ -61,7 +61,7 @@ function LoginForm() {
 
   return (
     <Container style={containerStyle}>
-      <Paper elevation={3} style={paperStyle}>
+      <Paper elevation={3} sx={paperStyle}>
         <Typography variant="h5">Login</Typography>
         <form style={formStyle} onSubmit={handleSubmit}>
           <TextField

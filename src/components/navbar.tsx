@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import RocketIcon from '@mui/icons-material/Rocket';
@@ -20,6 +21,7 @@ const settings = ['Account', 'Logout'];
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -37,6 +39,7 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = (menu: string) => {
     setAnchorElUser(null);
     if (menu === 'Logout') dispatch(logOut());
+    if (menu === 'Account') navigate('/account');
   };
 
   return (
@@ -69,7 +72,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="blue"
+              color="primary"
             >
               <MenuIcon />
             </IconButton>

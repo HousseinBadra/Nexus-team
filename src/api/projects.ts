@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Project } from '../types/project';
 
-const API_URL = 'http://localhost:3001'; // replace with your actual API URL
+const API_URL = 'http://54.159.116.83:3001'; // replace with your actual API URL
 
 const getAllProjects = async (query: string, keywords: string[]) => {
   const response = await axios.get(

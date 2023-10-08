@@ -14,6 +14,8 @@ function RegistrationForm() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     if (id == null) return;
@@ -44,25 +46,42 @@ function RegistrationForm() {
     marginTop: '16px',
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: { target: { value: React.SetStateAction<string> } }) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: { target: { value: React.SetStateAction<string> } }) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleFullNameChange = (e: { target: { value: React.SetStateAction<string> } }) => {
+    setFullName(e.target.value);
+  };
+
+  const handleDescriptionChange = (e: { target: { value: React.SetStateAction<string> } }) => {
+    setDescription(e.target.value);
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Add your Registrayion logic here
-    dispatch(signUp(email, password));
+    dispatch(signUp(email, password, fullName, description));
   };
 
   return (
     <Container style={containerStyle}>
-      <Paper elevation={3} style={paperStyle}>
+      <Paper elevation={3} sx={paperStyle}>
         <Typography variant="h5">Registration</Typography>
         <form style={formStyle} onSubmit={handleSubmit}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            label="Full Nmae"
+            type="fullName"
+            value={fullName}
+            onChange={handleFullNameChange}
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -71,6 +90,18 @@ function RegistrationForm() {
             type="email"
             value={email}
             onChange={handleEmailChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            label="Bio"
+            type="description"
+            value={description}
+            onChange={handleDescriptionChange}
+            multiline
+            rows={3}
+            required
           />
           <TextField
             variant="outlined"

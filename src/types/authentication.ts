@@ -5,5 +5,7 @@ export type AuthenticationMessage = {
     email: string;
     updatedAt: string;
     _id: string;
+    description?: string;
+    fullName?: string;
   };
 };

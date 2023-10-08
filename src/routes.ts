@@ -1,3 +1,4 @@
+import accountPage from './pages/accountPage';
 import AuthPage from './pages/authentication';
 import MainPage from './pages/mainPage';
 
@@ -25,6 +26,12 @@ const routes: RouteType[] = [
     path: '/',
     component: MainPage,
     name: 'Main Page',
+    protected: true,
+  },
+  {
+    path: '/account',
+    component: accountPage,
+    name: 'Account',
     protected: true,
   },
 ];

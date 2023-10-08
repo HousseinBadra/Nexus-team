@@ -1,4 +1,5 @@
-import { all, takeLatest, call, put } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { TakeableChannel } from 'redux-saga';
 import { AxiosResponse } from 'axios';
 import api from '../api/projects';
 import { ProjectsActions } from '../slices/projects';
@@ -92,7 +93,6 @@ export function* subProject(payload: { projectId: string; userId: string }) {
     const response: AxiosResponse<ResponseSuccess<string> | ResponseError> = yield call(() =>
       api.subProject(payload.projectId, payload.userId),
     );
-    console.log(response);
     if (response.data.success) {
       yield put(
         ProjectsActions.subProjectsSuccess({ _id: payload.projectId, user_id: payload.userId }),
@@ -123,14 +123,24 @@ export function* unsubProject(payload: { projectId: string; userId: string }) {
   }
 }
 
+const myArgument1: TakeableChannel<any> =
+  ActionTypes.GET_ALL_PROJECTS as any as TakeableChannel<any>;
+const myArgument2: TakeableChannel<any> =
+  ActionTypes.GET_PROJECT_BY_ID as any as TakeableChannel<any>;
+const myArgument3: TakeableChannel<any> = ActionTypes.CREATE_PROJECT as any as TakeableChannel<any>;
+const myArgument4: TakeableChannel<any> = ActionTypes.UPDATE_PROJECT as any as TakeableChannel<any>;
+const myArgument5: TakeableChannel<any> = ActionTypes.DELETE_PROJECT as any as TakeableChannel<any>;
+const myArgument6: TakeableChannel<any> = ActionTypes.SUB_PROJECT as any as TakeableChannel<any>;
+const myArgument7: TakeableChannel<any> = ActionTypes.UNSB_PROJECT as any as TakeableChannel<any>;
+
 function* watchManageProjects() {
-  yield all([takeLatest(ActionTypes.GET_ALL_PROJECTS, getAllProjects)]);
-  yield all([takeLatest(ActionTypes.GET_PROJECT_BY_ID, getProjectById)]);
-  yield all([takeLatest(ActionTypes.CREATE_PROJECT, createProject)]);
-  yield all([takeLatest(ActionTypes.UPDATE_PROJECT, updateProject)]);
-  yield all([takeLatest(ActionTypes.DELETE_PROJECT, deleteProject)]);
-  yield all([takeLatest(ActionTypes.SUB_PROJECT, subProject)]);
-  yield all([takeLatest(ActionTypes.UNSB_PROJECT, unsubProject)]);
+  yield all([takeLatest(myArgument1, getAllProjects)]);
+  yield all([takeLatest(myArgument2, getProjectById)]);
+  yield all([takeLatest(myArgument3, createProject)]);
+  yield all([takeLatest(myArgument4, updateProject)]);
+  yield all([takeLatest(myArgument5, deleteProject)]);
+  yield all([takeLatest(myArgument6, subProject)]);
+  yield all([takeLatest(myArgument7, unsubProject)]);
 }
 
 export default watchManageProjects;

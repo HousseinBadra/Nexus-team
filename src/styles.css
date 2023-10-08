@@ -55,3 +55,15 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.avatar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 40px;
+}
+
+.avatar .profile {
+  display: flex;
+  flex-direction: column;
+}
