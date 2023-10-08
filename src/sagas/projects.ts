@@ -92,6 +92,7 @@ export function* subProject(payload: { projectId: string; userId: string }) {
     const response: AxiosResponse<ResponseSuccess<string> | ResponseError> = yield call(() =>
       api.subProject(payload.projectId, payload.userId),
     );
+    console.log(response);
     if (response.data.success) {
       yield put(
         ProjectsActions.subProjectsSuccess({ _id: payload.projectId, user_id: payload.userId }),

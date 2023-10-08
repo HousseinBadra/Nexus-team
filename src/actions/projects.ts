@@ -8,34 +8,34 @@ export const getAllProjects = (query: string, keywords: string[]) => ({
 });
 
 export const getProjectById = (id: string) => ({
-  action: ActionTypes.GET_PROJECT_BY_ID,
+  type: ActionTypes.GET_PROJECT_BY_ID,
   id,
 });
 
 export const createProject = (project: Project) => ({
-  action: ActionTypes.CREATE_PROJECT,
+  type: ActionTypes.CREATE_PROJECT,
   project,
 });
 
 export const updateProject = (id: string, project: Project) => ({
-  action: ActionTypes.UPDATE_PROJECT,
+  type: ActionTypes.UPDATE_PROJECT,
   id,
   project,
 });
 
 export const deleteProject = (id: string) => ({
-  action: ActionTypes.DELETE_PROJECT,
+  type: ActionTypes.DELETE_PROJECT,
   id,
 });
 
 export const subProject = (projectId: string, userId: string) => ({
-  action: ActionTypes.SUB_PROJECT,
+  type: ActionTypes.SUB_PROJECT,
   projectId,
   userId,
 });
 
 export const unsubProject = (projectId: string, userId: string) => ({
-  action: ActionTypes.UNSB_PROJECT,
+  type: ActionTypes.UNSB_PROJECT,
   projectId,
   userId,
 });
