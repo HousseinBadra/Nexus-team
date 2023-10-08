@@ -16,6 +16,7 @@ export type Project = {
   startDate: Date;
   watching: string[];
   upvotes: number;
+  websiteUrl?: string;
 };
 
 export enum ProjectStatus {

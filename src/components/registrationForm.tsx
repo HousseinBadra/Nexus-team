@@ -1,15 +1,14 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GithubIcon from '@mui/icons-material/GitHub';
 import { Paper, TextField, Button, Typography, Container, IconButton } from '@mui/material';
-import { useNavigate, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logIn } from '../actions/authentication';
+import { Link, useNavigate } from 'react-router-dom';
+import { signUp } from '../actions/authentication';
 import { RootState } from '../store';
 
-function LoginForm() {
+function RegistrationForm() {
   const navigate = useNavigate();
   const id = useSelector((state: RootState) => state.AuthSlice.auth?.user._id);
   const dispatch = useDispatch();
@@ -55,14 +54,14 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(logIn(email, password));
-    // Add your login logic here
+    // Add your Registrayion logic here
+    dispatch(signUp(email, password));
   };
 
   return (
     <Container style={containerStyle}>
       <Paper elevation={3} style={paperStyle}>
-        <Typography variant="h5">Login</Typography>
+        <Typography variant="h5">Registration</Typography>
         <form style={formStyle} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
@@ -100,15 +99,15 @@ function LoginForm() {
             color="primary"
             style={submitButtonStyle}
           >
-            Sign In
+            Register
           </Button>
         </form>
         <div style={{ margin: '10px auto 0' }}>
-          <Link to="/register">Don't have an account ?</Link>
+          <Link to="/login">Already have an account ?</Link>
         </div>
       </Paper>
     </Container>
   );
 }
 
-export default LoginForm;
+export default RegistrationForm;

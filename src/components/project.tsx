@@ -7,10 +7,9 @@ import { Project } from '../types/project';
 const colors = ['error', 'default', 'primary', 'secondary', 'info', 'success', 'warning'];
 type ProjectProps = {
   project: Project;
-  onExplore: (id: string) => void;
 };
 export default function ProjectComponent(props: ProjectProps) {
-  const { project, onExplore } = props;
+  const { project } = props;
   return (
     <div className="project-box">
       <h2>
@@ -28,16 +27,11 @@ export default function ProjectComponent(props: ProjectProps) {
         ))}
       </div>
       <div>
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ borderRadius: '10px' }}
-          onClick={() => {
-            onExplore(project._id);
-          }}
-        >
-          Explore <SearchIcon />
-        </Button>
+        <a href={project.websiteUrl ?? 'https://www.nasa.gov/'} target="_blank" rel="noreferrer">
+          <Button variant="contained" color="primary" style={{ borderRadius: '10px' }}>
+            Explore <SearchIcon />
+          </Button>
+        </a>
       </div>
     </div>
   );

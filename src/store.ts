@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sagaMiddleWare, { runSagas } from './sagas/index';
+import AuthSlice from './slices/authentication';
+import ProjectsSlice from './slices/projects';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    AuthSlice,
+    ProjectsSlice,
+  },
   middleware: (getDefaultMiddleWare) => getDefaultMiddleWare().concat(sagaMiddleWare),
 });
 

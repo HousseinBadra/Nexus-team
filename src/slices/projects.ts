@@ -119,4 +119,4 @@ const ProjectsSlice = createSlice({
 
 export default ProjectsSlice.reducer;
 
-export const AuthActions = ProjectsSlice.actions;
+export const ProjectsActions = ProjectsSlice.actions;

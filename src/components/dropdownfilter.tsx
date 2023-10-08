@@ -22,7 +22,7 @@ const MenuProps = {
 type MultipleSelectCheckmarksprops = {
   name: string;
   options: string[];
-  onChange: (name: string, options: string[]) => void;
+  onChange: (options: string[]) => void;
 };
 
 export default function MultipleSelectCheckmarks(props: MultipleSelectCheckmarksprops) {
@@ -37,8 +37,10 @@ export default function MultipleSelectCheckmarks(props: MultipleSelectCheckmarks
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
-    onChange(name, personName);
   };
+  React.useEffect(() => {
+    onChange(personName);
+  }, [personName, onChange]);
 
   return (
     <div>
@@ -54,8 +56,8 @@ export default function MultipleSelectCheckmarks(props: MultipleSelectCheckmarks
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
-          {options.map((option) => (
-            <MenuItem key={option} value={option}>
+          {options.map((option, index) => (
+            <MenuItem key={option + String(index)} value={option}>
               <Checkbox checked={personName.indexOf(option) > -1} />
               <ListItemText primary={option} />
             </MenuItem>

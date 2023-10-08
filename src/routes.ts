@@ -12,14 +12,20 @@ const routes: RouteType[] = [
   {
     path: '/login',
     component: AuthPage,
-    name: 'Login Page',
+    name: 'Authentication Page',
+    protected: false,
+  },
+  {
+    path: '/register',
+    component: AuthPage,
+    name: 'Authentication Page',
     protected: false,
   },
   {
     path: '/',
     component: MainPage,
     name: 'Main Page',
-    protected: false,
+    protected: true,
   },
 ];
 
