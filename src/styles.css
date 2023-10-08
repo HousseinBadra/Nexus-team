@@ -1,0 +1,69 @@
+/* .app-container {
+  background-color: darkblue;
+  color: white;
+  padding: 20px;
+}
+.project-box {
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 10px;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: darkblue;
+}
+.app-container {
+  margin-top: 50px;
+  color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+}
+
+.filters {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  border: none;
+}
+.dropdown {
+  margin: 10px 0;
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  padding: 10px;
+}
+.dropdown label {
+  margin-right: 10px;
+}
+.project-box {
+  background-color: white;
+  color: darkblue;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 40px;
+}
+
+.avatar .profile {
+  display: flex;
+  flex-direction: column;
+}
